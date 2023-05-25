@@ -8,7 +8,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.post('/inserisciPrevisione', async (req,res) => {
+app.post('/Previsione', async (req,res) => {
     const forecast = {
         previsione : req.body.previsione,
         temperatura : req.body.temperatura,
@@ -22,22 +22,22 @@ app.post('/inserisciPrevisione', async (req,res) => {
     res.end();
 })
 
-app.get('/lista/:provincia', async (req,res) => {
+app.get('/Previsione/:provincia', async (req,res) => {
     const lista = await listPrevisioni({
         provincia : req.params.provincia
     })
     res.json(lista);
 })
 
-app.delete('/del/:provincia', async (req,res) => {
+app.delete('/Previsione/del/:provincia', async (req,res) => {
     const deletee = await deletePrevisione({
         provincia : req.params.provincia
     })
     res.end();
 })
 
-app.put('/modifica', async(req,res) => {
-    
+app.put('/Previsione/modifica', async(req,res) => {
+
 })
 
 initStruct().then(
