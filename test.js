@@ -24,3 +24,13 @@ async function run() {
 }
 
 run();
+
+/*
+  "previsione": "nuvoloso",
+    "temperatura": 23.5,
+    "umidita": 23,
+    "uv": 44,
+    "data": "2023-04-23",
+    "fascia_oraria": "16-18",
+    "provincia": "MC"
+*/

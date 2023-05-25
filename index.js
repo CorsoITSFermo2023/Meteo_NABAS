@@ -6,9 +6,38 @@ const port = 3000;
 
 const app = express();
 
+app.use(bodyParser.json());
+
 app.post('/inserisciPrevisione', async (req,res) => {
-    const newForecast = insertPrevisione();
+    const forecast = {
+        previsione : req.body.previsione,
+        temperatura : req.body.temperatura,
+        umidita : req.body.umidita,
+        uv : req.body.uv,
+        data : req.body.data,
+        fascia_oraria : req.body.fascia_oraria,
+        provincia : req.body.provincia
+    }
+    const newForecast = await insertPrevisione(forecast);
     res.end();
+})
+
+app.get('/lista/:provincia', async (req,res) => {
+    const lista = await listPrevisioni({
+        provincia : req.params.provincia
+    })
+    res.json(lista);
+})
+
+app.delete('/del/:provincia', async (req,res) => {
+    const deletee = await deletePrevisione({
+        provincia : req.params.provincia
+    })
+    res.end();
+})
+
+app.put('/modifica', async(req,res) => {
+    
 })
 
 initStruct().then(
