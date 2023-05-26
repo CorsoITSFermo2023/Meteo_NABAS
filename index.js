@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const { initStruct } = require('./init-struct');
 const routerPrevisione = require('./routerPrevisione');
 const routerAllerte = require ('./routerAllerte');
-const{insertAllerta,listAllerte,getAllerta,updateAllerta,deleteAllerta}=require("./allerta.dao");
+
 
 const port = 3000;
 
